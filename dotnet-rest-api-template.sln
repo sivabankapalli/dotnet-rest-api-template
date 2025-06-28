@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiTemplate.Core", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiTemplate.Application", "src\RestApiTemplate.Application\RestApiTemplate.Application.csproj", "{B4A5EEF8-C796-2E80-B9AF-6D2F2BC9EF5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiTemplate.Adapters.Inbooud", "src\RestApiTemplate.Adapters.Inbooud\RestApiTemplate.Adapters.Inbooud.csproj", "{9AA1EE55-3C3A-6120-3CF3-04D9E3A27162}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiTemplate.Adapters.Inbound", "src\RestApiTemplate.Adapters.Inbooud\RestApiTemplate.Adapters.Inbound.csproj", "{9AA1EE55-3C3A-6120-3CF3-04D9E3A27162}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiTemplate.Adapters.Outbound", "src\RestApiTemplate.Adapters.Outbound\RestApiTemplate.Adapters.Outbound.csproj", "{CA6DC68F-74C4-EFCB-5CC9-CEC5DA5DD4E1}"
 EndProject

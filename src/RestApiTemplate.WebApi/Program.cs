@@ -8,16 +8,5 @@ builder.Services.AddHealthChecksWithReadinessAndLiveness();
 var app = builder.Build();
 
 app.UseRouting();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-    endpoints.MapHealthChecks(HealthCheck.Endpoint.Readiness, new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
-    {
-        Predicate = (check) => check.Name == "Readiness"
-    });
-    endpoints.MapHealthChecks(HealthCheck.Endpoint.Liveness, new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
-    {
-        Predicate = (check) => check.Name == "Liveness"
-    });
-});
+app.MapControllers();
 app.Run();
