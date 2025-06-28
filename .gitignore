@@ -1,0 +1,42 @@
+# Ignore build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+*.log
+
+# Others
+*.tmp
+*.bak
+*.swp
+*.sln.ide
+
+# NuGet
+*.nupkg
+.nuget/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Test results
+TestResults/
+
+# Publish outputs
+publish/
+/.vs
+/packages/MSTest.TestAdapter.2.2.10
+/packages/MSTest.TestFramework.2.2.10

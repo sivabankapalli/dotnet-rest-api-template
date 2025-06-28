@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ${APP_NAME}
+spec:
+  hosts:
+    - "${NAMESPACE_NAME}.apps.${PRIVATE_DNS_DOMAIN_NAME}"
+  gateways:
+    - istio-system/secure-istio-gateway
+  http:
+    - route:
+        - destination:
+            host: ${APP_NAME}.${NAMESPACE_NAME}.svc.cluster.local
+            port:
+              number: 5000

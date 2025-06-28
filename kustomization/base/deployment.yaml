@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: "${APP_NAME}"
+  labels:
+    component: deployment
+spec:
+  selector:
+    matchLabels:
+      app: "${APP_NAME}"
+  template:
+    metadata:
+      annotations:
+        # Set the default container for kubectl logs or exec commands
+        kubectl.kubernetes.io/default-container: app
+    spec:
+      serviceAccountName: "${SERVICEACCOUNT_NAME}"
+      containers:
+        - name: app
+          image: "${STAGE_ECR_HOST_NAME}/${DOCKER_IMAGE_TAG}:${UNIQUE_TAG}"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              name: http
+          env:
+            - name: TZ
+              value: Pacific/Auckland
+          readinessProbe:
+            httpGet:
+              path: ${READINESS_PROBE_PATH}
+              port: 5000
+              scheme: HTTP
+            initialDelaySeconds: 20
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: ${LIVENESS_PROBE_PATH}
+              port: 5000
+              scheme: HTTP
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+          resources:
+            requests:
+              cpu: 25m
+              memory: 128Mi
+            limits:
+              memory: 1Gi
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/appsettings.json
+              subPath: appsettings.json
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: app-config

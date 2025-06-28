@@ -1,0 +1,9 @@
+resources:
+  - ../base
+
+namespace: ${NAMESPACE_NAME}
+
+configMapGenerator:
+  - name: app-config
+    files:
+      - appsettings.json

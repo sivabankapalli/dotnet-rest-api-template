@@ -1,0 +1,14 @@
+version: v2
+
+application-version: "0.1"
+image-artifacts:
+  - restapi/rest-api-template
+stages:
+  build:
+    script: scripts/build.sh
+    evidence:
+      - build-result/static-analysis.txt
+  sit:
+    script: scripts/sit.sh
+    evidence:
+      - deploy-result/deploy-output.txt

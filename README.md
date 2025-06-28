@@ -1,1 +1,0 @@
-# dotnet-rest-api-template
