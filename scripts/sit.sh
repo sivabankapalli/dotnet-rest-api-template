@@ -5,7 +5,6 @@ set -o pipefail
 set -o xtrace
 
 echo "Importing application config"
-# shellcheck source=/dev/null
 source ./scripts/config.sh
 
 
